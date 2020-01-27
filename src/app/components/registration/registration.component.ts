@@ -54,10 +54,12 @@ export class RegistrationComponent implements OnInit {
     var date = this.datePipe.transform(new Date(), 'yyyyMMddHHmmss');
     var savedList = localStorage.getItem('registeredList');
 
-    var FileSaver = require('file-saver');
-    var file = new File([savedList], "list" + date + ".json", {
-      type: "application/json;charset=utf-8"
-    });
-    FileSaver.saveAs(file);
+    if (savedList != null) {
+      var FileSaver = require('file-saver');
+      var file = new File([savedList], "list" + date + ".json", {
+        type: "application/json;charset=utf-8"
+      });
+      FileSaver.saveAs(file);
+    }
   }
 }
