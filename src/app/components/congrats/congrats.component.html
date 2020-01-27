@@ -1,0 +1,93 @@
+<div class="container-fluid">
+  <div class="text-center">
+    <div *ngIf="content === 'certified' || content === 'continue'">
+      <img class="reward-icon" src="/assets/images/confetti.png" alt="confetti" />
+      <h2 class="mx-auto">CONGRATULATIONS</h2>
+
+      <p *ngIf="content === 'certified'" class="you-are">You are a certified MIVO User</p>
+      <p *ngIf="content === 'continue'" class="you-are">Please continue using MIVO</p>
+
+      <p>Agent Code: <strong>{{agent[0]}}</strong></p>
+      <p>Name: <strong [innerHTML]="agent[1]">{{agent[1]}}</strong></p>
+      <p>Commercial Structure: <strong>{{agent[2]}}</strong></p>
+      <p>Active Policy: <strong>{{agent[3]}}</strong></p>
+      <p>Premium: <strong>{{agent[4]}}</strong></p>
+    </div>
+
+    <div *ngIf="content === 'register'">
+      <img class="reward-icon" src="/assets/images/hello.png" alt="confetti" />
+      <h2 class="mx-auto">WELCOME TO MIVO, AGENT {{agent[0]}}</h2>
+      <p class="you-are">Please register here</p>
+
+      <form class="registration-form" [formGroup]="registrationForm">
+        <div class="form-group" [ngClass]="{'input-error': registrationForm.controls['agentCode'].invalid 
+            && (registrationForm.controls['agentCode'].dirty 
+            || registrationForm.controls['agentCode'].touched)}">
+          <input class="form-control" [(ngModel)]="agentCode" formControlName="agentCode" type="text" name="agentCode"
+            placeholder="Agent Code">
+          <p class="form-error" *ngIf="registrationForm.controls['agentCode'].errors?.required">
+            * agent code is required
+          </p>
+        </div>
+
+        <div class="form-group" [ngClass]="{'input-error': registrationForm.controls['fullName'].invalid 
+            && (registrationForm.controls['fullName'].dirty 
+            || registrationForm.controls['fullName'].touched)}">
+          <input class="form-control" [(ngModel)]="fullName" formControlName="fullName" type="text" name="fullName"
+            placeholder="Full Name">
+          <p class="form-error" *ngIf="registrationForm.controls['fullName'].errors?.required">
+            * name is required
+          </p>
+        </div>
+
+        <div class="form-group" [ngClass]="{'input-error': registrationForm.controls['email'].invalid 
+            && (registrationForm.controls['email'].dirty 
+            || registrationForm.controls['email'].touched)}">
+          <input class="form-control" [(ngModel)]="email" formControlName="email" type="text" name="email"
+            placeholder="Email">
+          <p class="form-error" *ngIf="registrationForm.controls['email'].errors?.required">
+            * email is required
+          </p>
+          <p class="form-error" *ngIf="registrationForm.controls['email'].errors?.email">
+            * email is invalid
+          </p>
+        </div>
+
+        <div class="form-group" [ngClass]="{'input-error': registrationForm.controls['contact'].invalid 
+            && (registrationForm.controls['contact'].dirty 
+            || registrationForm.controls['contact'].touched)}">
+          <input class="form-control" [(ngModel)]="contact" formControlName="contact" type="text" name="contact"
+            placeholder="Contact Number">
+          <p class="form-error" *ngIf="registrationForm.controls['contact'].errors?.required">
+            * contact number is required
+          </p>
+        </div>
+
+        <div class="form-group" [ngClass]="{'input-error': registrationForm.controls['office'].invalid 
+            && (registrationForm.controls['office'].dirty 
+            || registrationForm.controls['office'].touched)}">
+          <input class="form-control" [(ngModel)]="office" formControlName="office" type="text" name="office"
+            placeholder="Sales Office">
+          <p class="form-error" *ngIf="registrationForm.controls['office'].errors?.required">
+            * sales office is required
+          </p>
+        </div>
+
+        <div *ngIf="isRegistered" class="alert alert-danger">Agent code already registered!</div>
+
+        <div class="container-login-form-btn">
+          <button [disabled]="registrationForm.pristine || registrationForm.invalid"
+            class="login-btn btn btn-primary form-control" (click)="onSubmit()">
+            Register
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <div *ngIf="content === 'registered'">
+      <img class="reward-icon" src="/assets/images/confetti.png" alt="confetti" />
+      <h2 class="mx-auto">CONGRATULATIONS</h2>
+      <p class="you-are">You are listed for registration</p>
+    </div>
+  </div>
+</div>

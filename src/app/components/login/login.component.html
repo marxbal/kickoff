@@ -1,0 +1,52 @@
+<div id="login">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-8 login-panel left-container">
+        <div class="wrap-banner">
+          <div class="login-header">
+            <h1>Welcome to</h1>
+          </div>
+          <div class="brand-logo">
+            <img src="/assets/images/mivo_logo_light.png" />
+          </div>
+          <p>Sales Kick-off</p>
+        </div>
+      </div>
+      <div class="col-md-4 login-panel right-container">
+        <div class="wrap-login">
+
+          <form class="login-form" [formGroup]="loginForm">
+            <span class="login-form-title">
+              LOGIN PORTAL
+            </span>
+
+            <div class="form-group" [ngClass]="{'input-error': loginForm.controls['username'].invalid 
+            && (loginForm.controls['username'].dirty 
+            || loginForm.controls['username'].touched)}">
+              <input class="form-control"  [(ngModel)]="username" formControlName="username" type="text" name="username" placeholder="Agent Code">
+              <p class="form-error" *ngIf="loginForm.controls['username'].errors?.required">
+                * agent code is required
+              </p>
+            </div>
+
+            <div class="container-login-form-btn">
+              <button [disabled]="loginForm.pristine || loginForm.invalid"
+                class="login-btn btn btn-primary form-control" (click)="onSubmit()">
+                Login
+              </button>
+            </div>
+          </form>
+
+        </div>
+        <div class="login-footer">
+          <ul>
+            <li>About</li>
+            <li>Privacy</li>
+            <li>Terms and Condition</li>
+          </ul>
+        </div>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</div>

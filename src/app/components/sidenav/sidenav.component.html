@@ -1,0 +1,51 @@
+<ul class="navbar-nav sidebar sidebar-dark accordion toggled" id="accordionSidebar">
+
+  <!-- Sidebar - Brand -->
+  <a class="sidebar-brand d-flex align-items-center justify-content-center" (click)="setPage('dashboard')">
+    <img src="../../assets/images/new_mivo_logo.png" alt="brand-logo" />
+  </a>
+
+  <!-- Divider -->
+  <hr class="sidebar-divider my-0">
+
+  <!-- Nav Item - Dashboard -->
+  <li [ngClass]="{'active': page=='congrats'}" class="nav-item" (click)="setPage('congrats')">
+    <a class="nav-link">
+      <i class="fas fa-fw fa-tachometer-alt"></i>
+      <span>Dashboard</span></a>
+  </li>
+
+  <!-- Divider -->
+  <hr class="sidebar-divider">
+
+  <li [ngClass]="{'active': page=='registration'}" class="nav-item" (click)="setPage('registration')">
+    <a class="nav-link">
+      <i class="fas fa-fw fa-users"></i>
+      <span>Registration List</span>
+    </a>
+  </li>
+
+  <!-- Divider -->
+  <hr class="sidebar-divider">
+
+  <!-- Heading -->
+  <div class="sidebar-heading">
+    Agent Information
+  </div>
+
+  <!-- Nav Item - Charts -->
+  <li class="nav-item">
+    <div class="nav-link">
+      <i class="fas fa-fw fa-map-marked-alt"></i>
+      <span>Acacia Ave., Madrigal Business Park, Ayala Alabang, Muntinlupa City</span></div>
+  </li>
+
+  <!-- Divider -->
+  <hr class="sidebar-divider d-none d-md-block">
+
+  <!-- Sidebar Toggler (Sidebar) -->
+  <div class="text-center d-none d-md-inline">
+    <button class="rounded-circle border-0" id="sidebarToggle"></button>
+  </div>
+
+</ul>
