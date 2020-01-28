@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <div class="text-center">
     <div *ngIf="content === 'certified' || content === 'continue'">
-      <img class="reward-icon" src="/assets/images/confetti.png" alt="confetti" />
+      <img class="reward-icon" src="./assets/images/confetti.png" alt="confetti" />
       <h2 class="mx-auto">CONGRATULATIONS</h2>
 
       <p *ngIf="content === 'certified'" class="you-are">You are a certified MIVO User</p>
@@ -15,7 +15,7 @@
     </div>
 
     <div *ngIf="content === 'register'">
-      <img class="reward-icon" src="/assets/images/hello.png" alt="confetti" />
+      <img class="reward-icon" src="./assets/images/hello.png" alt="confetti" />
       <h2 class="mx-auto">WELCOME TO MIVO, AGENT {{agent[0]}}</h2>
       <p class="you-are">Please register here</p>
 
@@ -85,7 +85,7 @@
     </div>
 
     <div *ngIf="content === 'registered'">
-      <img class="reward-icon" src="/assets/images/confetti.png" alt="confetti" />
+      <img class="reward-icon" src="./assets/images/confetti.png" alt="confetti" />
       <h2 class="mx-auto">CONGRATULATIONS</h2>
       <p class="you-are">You are listed for registration</p>
     </div>
