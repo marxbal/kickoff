@@ -45,7 +45,7 @@ export class LoginComponent implements OnInit {
   }
 
   getUserList() {
-    this.http.get('../../../assets/file/agentProduction.csv', {
+    this.http.get('./assets/file/agentProduction.csv', {
       responseType: 'text'
     }).subscribe(
       data => {
