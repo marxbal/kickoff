@@ -24,6 +24,11 @@ export class CongratsComponent implements OnInit {
     this.createForm();
   }
 
+  fullName : any;
+  email : any;
+  contact : any;
+  office : any;
+
   createForm() {
     this.registrationForm = this.fb.group({
       agentCode: ['', Validators.required],
