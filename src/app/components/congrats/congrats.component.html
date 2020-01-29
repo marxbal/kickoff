@@ -1,7 +1,8 @@
 <div class="container-fluid">
   <div class="text-center">
     <div *ngIf="content === 'certified' || content === 'continue'">
-      <img class="reward-icon" src="./assets/images/confetti.png" alt="confetti" />
+      <img *ngIf="content === 'certified'" class="reward-icon" src="./assets/images/confetti.png" alt="confetti" />
+      <img *ngIf="content === 'continue'" class="reward-icon" src="./assets/images/confetti-silver.png" alt="confetti" />
       <h2 class="mx-auto">CONGRATULATIONS</h2>
 
       <p *ngIf="content === 'certified'" class="you-are">You are a certified MIVO User</p>
@@ -10,8 +11,6 @@
       <p>Agent Code: <strong>{{agent[0]}}</strong></p>
       <p>Name: <strong [innerHTML]="agent[1]">{{agent[1]}}</strong></p>
       <p>Commercial Structure: <strong>{{agent[2]}}</strong></p>
-      <!-- <p>Active Policy: <strong>{{agent[3]}}</strong></p>
-      <p>Premium: <strong>{{agent[4]}}</strong></p> -->
     </div>
 
     <div *ngIf="content === 'register'">
@@ -66,8 +65,11 @@
         <div class="form-group" [ngClass]="{'input-error': registrationForm.controls['office'].invalid 
             && (registrationForm.controls['office'].dirty 
             || registrationForm.controls['office'].touched)}">
-          <input class="form-control" [(ngModel)]="office" formControlName="office" type="text" name="office"
-            placeholder="Sales Office">
+
+          <select class="form-control" [(ngModel)]="office" formControlName="office" type="text" name="office">
+            <option *ngFor="let offsss of salesOfficeList" [ngValue]="offsss">{{offsss}}</option>
+          </select>
+
           <p class="form-error" *ngIf="registrationForm.controls['office'].errors?.required">
             * sales office is required
           </p>
